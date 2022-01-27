@@ -17,7 +17,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
-
+// this button is generating a grid with 10 rows and 5 col, and fill it with random values (int)
         private void button1_Click(object sender, EventArgs e)
         {
             int randomNumber;
@@ -36,7 +36,10 @@ namespace WindowsFormsApp1
             }
 
         }
-
+// an event trigger by clicking on any cell of the grid 
+// basically it's call two methods
+// IncValueRow this method add 1 to each cell value in the row
+// incrValueCol this method add 1 to each cell value in the column
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             timer1.Start();
@@ -46,6 +49,8 @@ namespace WindowsFormsApp1
             IncrValueRaw(rowIndex);
             IncrValueCol(colIndex);
         }
+  
+// add 1 to each cell in the row and change the background color into yellow
         public void IncrValueRaw(int r)
         {
             Hashtable FibonacciList = new Hashtable();
@@ -77,6 +82,8 @@ namespace WindowsFormsApp1
                 }
             }
         }
+// add 1 to each cell in the column and change the background color into LightBlue
+
         public void IncrValueCol(int c)
         {
             for (int i=0;i<dataGridView1.RowCount;i++)
@@ -85,6 +92,8 @@ namespace WindowsFormsApp1
                 dataGridView1[c, i].Style.BackColor = Color.LightBlue;
             }
         }
+        
+ // check if the number is belong to fibonacci sequence
         public bool isFibonacci(int x)
         {
             int first = 0;
